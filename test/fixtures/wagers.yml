@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bet: MyString
+  fulfilled: false
+  winner_id: 1
+  loser_id: 1
+
+two:
+  bet: MyString
+  fulfilled: false
+  winner_id: 1
+  loser_id: 1

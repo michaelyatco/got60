@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  competitor_id: MyString
+  pic: MyString
+  birthdate: 2017-02-17
+  gender: MyString
+  orientation: MyString
+  bio: MyString
+  preferred_opponent: MyString
+  preferred_age_range: MyString
+  distance_limits: MyString
+  default_games: MyString
+  rating: 1
+  stats: 1
+
+two:
+  competitor_id: MyString
+  pic: MyString
+  birthdate: 2017-02-17
+  gender: MyString
+  orientation: MyString
+  bio: MyString
+  preferred_opponent: MyString
+  preferred_age_range: MyString
+  distance_limits: MyString
+  default_games: MyString
+  rating: 1
+  stats: 1
