@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root to: "competitors#index"
 
 #competitors routes
-  get "/competitors", to: "competitors#index"
+
   get "/signup", to: "competitors#new"
   post "/competitors", to: "competitors#create"
-  get "/competitors/:id", to: "competitors#show"
-  get "/competitors/:id/edit", to: "competitors#edit"
-  patch "/competitors/:id", to: "competitors#update"
-  delete "/competitors/:id", to: "competitors#destroy"
+  delete "/competitors", to: "competitors#destroy"
+
+#profiles routes
+
 
 end
