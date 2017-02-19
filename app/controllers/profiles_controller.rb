@@ -7,10 +7,10 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    # if current_user.profile.any?
+    if current_competitor.profile.any?
     @profile = Profile.new
     render "new.html.erb"
-    # else
+    else
     # redirect_to their profile page
     # end
   end

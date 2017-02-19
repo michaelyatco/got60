@@ -1,0 +1,72 @@
+<h1><%= header %></h1>
+<% if @profile.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+ 
+    <ul>
+    <% @profile.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_tag url, method: method_variable do %>
+
+<div>
+  <%= label_tag :username %> 
+  <%= text_field_tag :username, @competitor.username %>
+</div>
+
+
+<div>
+  Image (Copy & paste the url):
+  <input type="text" name="image" value="<%= @profile.images.last %>">
+</div>
+
+<div>
+<form action= "/action_page.php">
+  Birthdate:
+  <input type="date" name="birthdate" value="<%= @profile.birthdate %>">
+  <input type="submit">
+</div>
+
+<div>
+  Gender:
+  <input type="text" name="gender" value="<%= @product.gender %>">
+</div>
+
+<div>
+  Orientation:
+  <input type="text" name="orientation" value="<%= @product.orientation %>">
+</div>
+
+<div>
+  Bio:
+  <input type="text" name="bio" value="<%= @product.bio %>">
+</div>
+
+<div>
+  Preferred Opponent:
+  <input type="text" name="preferred_opponent" value="<%= @product.preferred_opponent %>">
+</div>
+
+<div>
+  Preferred Age Range:
+  <input type="text" name="preferred_age_range" value="<%= @product.preferred_age_range %>">
+</div>
+
+<div>
+  Distance Limits:
+  <input type="text" name="distance_limit" value="<%= @product.distance_limit %>">
+</div>
+
+<div>
+  Default Games:
+  <input type="text" name="default_games" value="<%= @product.default_games %>">
+</div>
+
+<div>
+  <input type="submit" name="Save product!">
+</div>
+<% end %>

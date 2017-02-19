@@ -1,0 +1,17 @@
+<p>Name: <%= @competitor.username %></p>
+<p>Images:</p>
+  <% @profiles.images.each do |image| %>
+    <p> <img src = <%= image.url %>></p>
+  <% end %>
+<p>Birthdate: <%= @profile.birthdate %></p>
+<p>Gender: <%= @profile.gender%></p>
+<p>Bio: <%= @profile.bio %></p>
+<p>Preferred Opponent: <%= @profile.preferred_opponent %></p>
+<p>Preferred Age Range: <%= @profile.preferred_age_range %></p>
+<p>Distance Limits: <%= @profile.distance_limits %></p>
+<p>Default Games: <%= @profile.default_games %></p>
+
+<% if current_user %>
+<%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit", class: "btn btn-success" %>
+<%= link_to "Delete Profile", "/profiles/#{@profile.id}", method: :delete, class: "btn btn-danger" %>
+<% end %>
