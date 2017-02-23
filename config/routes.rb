@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   root to: "competitors#index"
 
 #competitors routes
-
+  get "/competitors", to: "competitors#index"
   get "/signup", to: "competitors#new"
   post "/competitors", to: "competitors#create"
-  delete "/competitors", to: "competitors#destroy"
+  delete "/competitors/:id", to: "competitors#destroy"
 
 #profiles routes
-
   get "/profiles", to: "profiles#index"
   get "/profiles/new", to: "profiles#new"
   post "/profiles", to: "profiles#create"
@@ -26,5 +25,14 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
+
+#games routes
+  get "/games", to: "games#index"
+  get "/games", to: "games#new"
+  post "/games", to: "games#create"
+  get "/games/:id", to: "games#show"
+  get "/games/:id/edit", to: "games#edit"
+  patch "/games/:id", to: "games#update"
+  delete "/games/:id", to: "games#destroy"
   
 end

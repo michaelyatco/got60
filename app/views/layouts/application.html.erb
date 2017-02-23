@@ -9,6 +9,63 @@
   </head>
 
   <body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/competitors">Got60</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Profile<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Friends</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sorting options <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/carted_products">Checkout </a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Item Query <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if current_competitor %>
+              <li><%= link_to "Log Out!", "/logout", class: "h1" %></li>
+            <% else %>
+            <li><a href="/login">Log In!</a></li>
+            <li><a href="/signup">Sign Up!</a></li>
+            <% end %>
+          <li role="separator" class="divider"></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+       </button>
+        <%= message %>
+      </div>
+
+      <% end %>
+      <h1>Got 60!!!</h1>
+    <div class="container">  
     <%= yield %>
+    </div>
+    <h1>Contact me at mjyatco@gmail.com</h1>
   </body>
 </html>
+

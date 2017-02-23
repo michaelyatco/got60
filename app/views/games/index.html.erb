@@ -1,0 +1,11 @@
+<%= if current_competitor %>
+<h1>Hello <%= current_competitor.username %></h1>
+<% end %>
+  <div class="row">
+    <%= @games.each do |game| %>
+      <div class = "col-md-4" >
+        <div class= "well">
+          <h1>
+            <a href="/games/<%= game.id %>">
+              <%= game.name %>
+          </h1>
