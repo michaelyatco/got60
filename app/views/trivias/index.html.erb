@@ -3,7 +3,9 @@
 <% end %>
   <div class="row">
     <%= @trivia_question.question %>
-    <% @trivia_answers.shuffle.each do |answer| %>
-    <p><%= answer.answer %></p>
+      <% @trivia_answers.shuffle.each do |answer| %>
+      <%= form_tag("/questions", method: "get") do %>
+        <button name="answer" type="submit"><%= answer.answer %></button>
+      <% end %>
     <% end %>
   </div>
