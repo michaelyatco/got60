@@ -1,25 +1,9 @@
- <% if current_user %> 
-<h1>Hello <%= current_user.name %>!</h1>
+ <% if current_competitor %> 
+<h1>Hello <%= current_competitor.username %>!</h1>
 <% end %>
   <div class="row">
-    <% @trivia_questions.each do |question| %>
-      <div class = "col-md-4">
-        <div class="well">
-          <h1>
-            <a href="/products/<%= product.id %>">
-              <%= product.name %>
-            </a>
-          </h1>
-            <p>Price: <%=  number_to_currency(product.price, unit: "Rupees", format: "%n %u") %></p>
-            <p><%= product.sale_message %></p>
-            <p>Tax: <%= product.tax %></p>
-            <p>Total: <%= product.total %></p>
-            <p>Description: <%=  product.description %></p>
-            <p>Amount: <%= product.amount %></p>
-            <p>Added on:</p>
-              <%= product.friendly_time %>
-            <img src = "<%=  product.images.first.url %>" alt="<%= product.name %>">
-        </div>
-      </div>
+    <%= @trivia_question.question %>
+    <% @trivia_answers.shuffle.each do |answer| %>
+    <p><%= answer.answer %></p>
     <% end %>
   </div>

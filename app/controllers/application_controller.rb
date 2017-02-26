@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_competitor
   end
 
-  def authenticate_admin!
-    redirect_to '/login' unless current_competitor && current_user.admin?
-  end
+  # def authenticate_admin!
+  #   redirect_to '/login' unless current_competitor && current_competitor.admin?
+  # end
 
 
 end

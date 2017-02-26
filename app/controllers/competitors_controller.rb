@@ -1,11 +1,12 @@
 class CompetitorsController < ApplicationController
   
   def index
-    render 'index.html.erb'
+    render "index.html.erb"
   end
 
   def new
-    render 'new.html.erb'
+    @competition = Competitor.new
+    render "new.html.erb"
   end
 
   def create
@@ -17,11 +18,11 @@ class CompetitorsController < ApplicationController
     )
     if competitor.save
       session[:competitor_id] = competitor.id
-      flash[:success] = 'Successfully created account!'
-      redirect_to '/'
+      flash[:success] = "Successfully created account!"
+      redirect_to "/profiles/new"
     else
-      flash[:warning] = 'Invalid email or password!'
-      redirect_to '/signup'
+      flash[:warning] = "Invalid email or password!"
+      redirect_to "/signup"
     end
   end
 
