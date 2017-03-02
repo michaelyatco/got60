@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "competitors#new"
+  root to: "pages#index"
+
+#pages routes
+  get "/index", to: "pages#index"
 
 #competitors routes
   get "/competitors", to: "competitors#index"
