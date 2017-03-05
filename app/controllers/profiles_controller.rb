@@ -37,13 +37,14 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Product.find_by(id: params[:id])
+    @competitor = current_competitor
+    @profile = Profile.find_by(id: params[:id])
     render "edit.html.erb"
   end
 
   def update
     @profile = Profile.find_by(id: params[:id])
-    @profile.assign_attributes(gender: params[:gender], orientation: params[:orientation], bio: params[:bio], preferred_opponent: params[:preferred_opponent], preferred_age_range: params[:preferred_age_range], distance_limits: params[:distance_limits], dafault_games: params[:default_games])
+    @profile.assign_attributes(gender: params[:gender], orientation: params[:orientation], bio: params[:bio], preferred_opponent: params[:preferred_opponent], preferred_age_range: params[:preferred_age_range], distance_limits: params[:distance_limits], default_games: params[:default_games])
 
     if @profile.save
       @profile.images.create(url: params[:images])

@@ -284,6 +284,9 @@
         </div>
     </div><!-- Navbar end -->
 
+
+      <h1>Got 60!!!</h1>
+    <div class="container">     
     <% flash.each do |name, message| %>
       <div class="alert alert-<%= name %> alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -292,9 +295,7 @@
         <%= message %>
       </div>
 
-      <% end %>
-      <h1>Got 60!!!</h1>
-    <div class="container">  
+      <% end %> 
     <%= yield %>
     </div>
 
