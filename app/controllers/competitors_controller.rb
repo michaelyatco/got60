@@ -5,7 +5,7 @@ class CompetitorsController < ApplicationController
   end
 
   def new
-    @competition = Competitor.new
+    @competitor = Competitor.new
     render "new.html.erb"
   end
 

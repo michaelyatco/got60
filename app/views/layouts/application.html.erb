@@ -130,13 +130,14 @@
                                         <i class="fa fa-lock form-control-feedback"></i>
                                     </div>
                                     <input type="submit" class="btn btn-primary btn-block" value="Log In">
+                                    <% end %>
                                     <!-- <span class="text"> <i class="fa fa-arrow-right"></i></span> -->
                                     </input>
                                     <h3 class="text-center">or</h3>
-                                    <button type="submit" class="btn btn-primary btn-block">
+                                    <a href="/signup"><button class="btn btn-primary btn-block">
                                         <span class="text">Sign Up <i class="fa fa-arrow-right"></i></span>
-                                    </button>
-                                    <p class="text-center"><a href="#" title="Reset password">Forgot your password?</a></p>
+                                    </button></a>
+                                   <!--  <p class="text-center"><a href="#" title="Reset password">Forgot your password?</a></p>
                                     <h3 class="text-center">Sign in with your social account</h3>
                                     <ul class="list-inline text-center">
                                         <li>
@@ -146,9 +147,8 @@
                                         </li><li>
                                             <a href="#" title="Login with Google +"><span class="icon-circle-small"><i class="fa fa-google-plus"></i></span></a>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 <!-- </form> -->
-                                <% end %>
                             </li>
                             <% end %>
                         </ul>
@@ -185,14 +185,6 @@
                             <span class="main-link">About</span>
                             <span class="additional-info-link bracket">
                                 who we are
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#gallery">
-                            <span class="main-link">Gallery</span>
-                            <span class="additional-info-link bracket">
-                                screenshots
                             </span>
                         </a>
                     </li>
@@ -234,25 +226,6 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="main-link">Blog <b class="caret"></b></span>
-                            <span class="additional-info-link bracket">
-                                recents posts
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#blog">Blog section</a>
-                            </li>
-                            <li>
-                                <a class="single-page" href="blog-list.html">List page</a>
-                            </li>
-                            <li>
-                                <a class="single-page" href="blog-item.html">Single page</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
                         <a href="#partners">
                             <span class="main-link">Partners</span>
                             <span class="additional-info-link bracket">
@@ -286,7 +259,7 @@
 
 
       <h1>Got 60!!!</h1>
-    <div class="container">     
+    <div class="container top-margin">     
     <% flash.each do |name, message| %>
       <div class="alert alert-<%= name %> alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -16,7 +16,7 @@ class GamesController < ApplicationController
       wager_id: params[:wager_id], 
       round_id: params[:round_id])
     if game.save 
-      redirect_to "/trivia"
+      redirect_to "/trivias/#{game.id}"
     else 
       render "new.html.erb"
     end

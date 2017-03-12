@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "pages#index"
 
+  get '/', to: 'games#show'
+  namespace :api do
+    namespace :v1 do
+      get "/trivia", to: "trivia#index"
+      patch "/games/:id", to: "games#update"
+    end
+  end
+
 #pages routes
   get "/index", to: "pages#index"
 
@@ -42,5 +50,6 @@ Rails.application.routes.draw do
   get "/trivias", to: "trivias#index"
   get "/trivias", to: "trivias#new"
   post "/trivias", to: "trivias#create"
+  get "/trivias/:id", to: "trivias#show"
   
 end
