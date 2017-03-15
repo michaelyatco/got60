@@ -29,7 +29,7 @@
     };
 
     $scope.userMessage = function() {
-      $scope.currentQuestion = 1000000;
+      $scope.currentQuestion = null;
       $scope.message = "Game over. Your score is " + $scope.userScore;
       // insert some logic that determines if this is competitor score or challenger score...
       var scoreParams = {

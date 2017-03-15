@@ -3,6 +3,8 @@
 <div ng-app="app">
   <div ng-controller="triviaCtrl" ng-init="setup(<%= @game.id %>)">
     {{ message }}
+    <timer countdown="30" interval="1000"><div class="progress progress-striped active {{displayProgressActive}}"style="height: 30px;"> Remaining time : {{countdown}} second{{secondsS}} ({{progressBar}}%). Activity? {{displayProgressActive}} <div class="bar" style="min-width: 2em;width: {{progressBar}}%;"></div> </div></timer>
+    <timer interval="1000">{{seconds}} second{{secondsS}}.</timer>
     <div ng-repeat="question in questions" ng-if="currentQuestion == $index">
       <h3>{{ question.question }}</h3>
       <div ng-repeat="answer in question.trivia_answers">
