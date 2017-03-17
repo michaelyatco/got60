@@ -42,7 +42,7 @@
 <body data-spy="scroll" data-offset="122" data-target="#main-menu" data-skrollr="true" ng-app="app">
 
     <!-- Preloader -->
-    <div class="loader-overlay">
+<!--     <div class="loader-overlay">
         <div class="loader">
             <div class="loader-inner pacman">
                 <div></div>
@@ -54,7 +54,7 @@
             <h3 class="loader-text">Loading</h3>
         </div>
     </div>
-
+ -->
     <!-- Color switcher -->
     <div class="sidebar">
         <a class="sidebar-switcher" href="#" title="Color switcher">
@@ -76,86 +76,6 @@
         <div class="triangle">
             <i class="fa fa-angle-double-down" aria-hidden="true"></i>
         </div>
-        <!-- Topbar -->
-        <div class="header-top clearfix">
-            <div class="container">
-                <ul class="list-inline social-links">
-                    <li>
-                        <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
-                    </li><li class="hidden-xs">
-                        <a href="#" title="Skype"><i class="fa fa-skype"></i></a>
-                    </li><li class="hidden-xxs">
-                        <a href="#" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                    </li><li class="hidden-xxs">
-                        <a href="#" title="Google +"><i class="fa fa-google-plus"></i></a>
-                    </li><li>
-                        <a href="#" title="Youtube"><i class="fa fa-youtube-play"></i></a>
-                    </li><li>
-                        <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
-                    </li>
-                </ul>
-                <div class="header-top-dropdown">
-                    <div class="btn-group dropdown">
-                        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                            <span class="text"><i class="fa fa-search"></i> Search</span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li>
-                                <form class="search-box" action="#">
-                                    <div class="form-group has-feedback no-margin">
-                                        <input type="text" class="form-control" placeholder="Search">
-                                        <i class="fa fa-search form-control-feedback"></i>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="btn-group dropdown">
-                        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                            <span class="text"><i class="fa fa-user"></i> Login</span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <% if current_competitor %>
-                                <span class="text"><i class="fa fa-user"></i> Logout</span>
-                            <% else %>
-                            <li>
-                                <!-- <form class="login-form" action="#"> -->
-                                <%= form_tag '/login', method: :post, class: "login-form" do %>
-                                    <div class="form-group has-feedback">
-                                        <input type="text" class="form-control" name="email" placeholder="Email">
-                                        <i class="fa fa-user form-control-feedback"></i>
-                                    </div>
-                                    <div class="form-group has-feedback">
-                                        <input type="password" class="form-control" name="password" placeholder="Password">
-                                        <i class="fa fa-lock form-control-feedback"></i>
-                                    </div>
-                                    <input type="submit" class="btn btn-primary btn-block" value="Log In">
-                                    <% end %>
-                                    <!-- <span class="text"> <i class="fa fa-arrow-right"></i></span> -->
-                                    </input>
-                                    <h3 class="text-center">or</h3>
-                                    <a href="/signup"><button class="btn btn-primary btn-block">
-                                        <span class="text">Sign Up <i class="fa fa-arrow-right"></i></span>
-                                    </button></a>
-                                   <!--  <p class="text-center"><a href="#" title="Reset password">Forgot your password?</a></p>
-                                    <h3 class="text-center">Sign in with your social account</h3>
-                                    <ul class="list-inline text-center">
-                                        <li>
-                                            <a href="#" title="Login with Facebook"><span class="icon-circle-small"><i class="fa fa-facebook"></i></span></a>
-                                        </li><li>
-                                            <a href="#" title="Login with Twitter"><span class="icon-circle-small"><i class="fa fa-twitter"></i></span></a>
-                                        </li><li>
-                                            <a href="#" title="Login with Google +"><span class="icon-circle-small"><i class="fa fa-google-plus"></i></span></a>
-                                        </li>
-                                    </ul> -->
-                                <!-- </form> -->
-                            </li>
-                            <% end %>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div><!-- Topbar end -->
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
@@ -197,58 +117,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#timeline">Timeline</a>
-                            </li>
-                            <li>
-                                <a href="#team">Team</a>
-                            </li>
-                            <li>
-                                <a href="#flow">Getting started</a>
-                            </li>
-                            <li>
-                                <a href="#faq">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="#pricing">Pricing</a>
-                            </li>
-                            <li>
-                                <a href="#testimonials">Testimonials</a>
-                            </li>
-                            <li>
-                                <a href="#requirements">Requirements</a>
-                            </li>
-                            <li>
-                                <a href="#somefunnumbers">Some fun numbers</a>
-                            </li>
-                            <li>
-                                <a href="#comingsoon">Coming Soon</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#partners">
-                            <span class="main-link">Partners</span>
-                            <span class="additional-info-link bracket">
-                                business friends
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="main-link">Contact <b class="caret"></b></span>
-                            <span class="additional-info-link bracket">
-                                stay in touch
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#contact-details">Contact details</a>
-                            </li>
-                            <li>
-                                <a href="#map">Map</a>
-                            </li>
-                            <li>
-                                <a href="#send-us-message">Send us message</a>
+                                <%= link_to 'My Profile', "/profiles/#{current_competitor.id}" %>
                             </li>
                         </ul>
                     </li>
@@ -311,7 +180,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="modal-title">Order form</h3>
+                    <h3 class="modal-title">Sign Up</h3>
                 </div>
                 <form method="post" action="#">
                     <div class="modal-body">
