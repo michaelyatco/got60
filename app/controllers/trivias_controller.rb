@@ -19,6 +19,7 @@ class TriviasController < ApplicationController
 
   def show
     @game = Game.find_by(id: params[:id])
+    @chatroom = Chatroom.find_by(id: params[:id])
     render 'show.html.erb'
   end
 end

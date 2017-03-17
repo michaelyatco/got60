@@ -16,6 +16,7 @@ class GamesController < ApplicationController
       wager_id: params[:wager_id], 
       round_id: params[:round_id])
     if game.save 
+      @chatroom = Chatroom.create(game_id: game.id)
       redirect_to "/trivias/#{game.id}"
     else 
       render "new.html.erb"
