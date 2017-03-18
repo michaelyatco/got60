@@ -117,7 +117,9 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/profiles/<%# current_competitor.id %>">My Profile</a>
+                                <% if current_competitor %>
+                                <a href="/profiles/<%= current_competitor.id %>">My Profile</a>
+                                <% end %>
                             </li>
                         </ul>
                     </li>

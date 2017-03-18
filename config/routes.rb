@@ -55,5 +55,11 @@ Rails.application.routes.draw do
   get "/trivias", to: "trivias#new"
   post "/trivias", to: "trivias#create"
   get "/trivias/:id", to: "trivias#show"
+
+#wager routes
+get "/wagers", to: "wagers#index"
+get "/wagers/new", to: "wagers#new"
+post "/wagers", to: "wagers#create"
+get "/wagers/:id", to: "wagers#show"
   
 end
