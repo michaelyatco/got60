@@ -1,1 +1,14 @@
-show.html.erb
+  <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @wager.game.id %>)">
+   <div ng-repeat="message in messages | orderBy: 'created_at'">
+     {{ message.name }}: {{ message.body }}
+   </div>
+
+   <div>
+      <label for="body">New message: </label>
+      <form ng-submit="createNewMessage(newMessageBody, <%= current_competitor.id %>, <%= @chatroom.id %>)">
+      <input type="text" name="body" ng-model="newMessageBody">
+      </form>
+      <input type="submit" ng-click="createNewMessage(newMessageBody, <%= current_competitor.id %>, <%= @chatroom.id %>)">
+   </div>
+
+  </div>

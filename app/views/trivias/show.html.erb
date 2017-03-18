@@ -1,7 +1,7 @@
 <h1>Welcome to the game!</h1>
 
 <div ng-app="app">
-  <div ng-controller="triviaCtrl" ng-init="setup()">
+  <div ng-controller="triviaCtrl" ng-init="setup(<%= @game.id %>)">
     {{ message }}
     <timer countdown="30" interval="1000"><div class="progress progress-striped active {{displayProgressActive}}"style="height: 30px;"> Remaining time : {{countdown}} second{{secondsS}} ({{progressBar}}%). Activity? {{displayProgressActive}} <div class="bar" style="min-width: 2em;width: {{progressBar}}%;"></div> </div></timer>
     <timer interval="1000">{{seconds}} second{{secondsS}}.</timer>

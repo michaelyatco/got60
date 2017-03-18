@@ -10,17 +10,22 @@ class GamesController < ApplicationController
 
   def create
     game = Game.new(
-      competitor_id: params[:competitor_id], 
+      competitor_id: current_competitor.id, 
       challenger_id: params[:challenger_id], 
       game_id: params[:game_id], 
-      wager_id: params[:wager_id], 
-      round_id: params[:round_id])
+      round_id: 1)
     if game.save 
       @chatroom = Chatroom.create(game_id: game.id)
-      redirect_to "/trivias/#{game.id}"
+      wager = Wager.create
+      game.update(wager_id: wager.id)
+      redirect_to "/wagers/#{wager.id}/edit"
     else 
       render "new.html.erb"
     end
+  end
+
+  def show
+    @game = Game.find_by(id: params[:id])
   end
 
 end

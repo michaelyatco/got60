@@ -1,0 +1,14 @@
+<h1>New game for <%= current_competitor.username %></h1>
+<%= form_tag "/games/", method: :post do %>
+  Game selected: 
+    <select name="game_id">
+      <option value="1">Trivia</option>
+    </select>
+  Challenger selected: 
+    <select name="challenger_id">
+        <% Competitor.all.each do |competitor| %>
+        <option value="<%= competitor.id %>"><%= competitor.username %></option>
+        <% end %>
+    </select>
+    <input type="submit" value="Create Game!">
+<% end %>

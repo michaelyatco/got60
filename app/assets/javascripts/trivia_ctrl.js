@@ -2,7 +2,7 @@
 (function() {
   "use strict";
 
-  angular.module("app").controller("triviaCtrl", function($scope, $http, $timeout) {
+  angular.module("app").controller("triviaCtrl", function($scope, $http, $timeout, $window) {
     $scope.setup = function(id) {
       $http.get("/api/v1/trivia.json").then(function(response) {
         $scope.questions = response.data;
@@ -36,7 +36,7 @@
         competitorScore: $scope.userScore
       };
       $http.patch("/api/v1/games/" + $scope.gameId, scoreParams).then(function(response) {
-        console.log("patch successful");
+        $window.location.href = "/wagers/1";
       });
     };
 

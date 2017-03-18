@@ -43,12 +43,9 @@ Rails.application.routes.draw do
 
 #games routes
   get "/games", to: "games#index"
-  get "/games", to: "games#new"
+  get "/games/new", to: "games#new"
   post "/games", to: "games#create"
   get "/games/:id", to: "games#show"
-  get "/games/:id/edit", to: "games#edit"
-  patch "/games/:id", to: "games#update"
-  delete "/games/:id", to: "games#destroy"
 
 #trivia routes
   get "/trivias", to: "trivias#index"
@@ -58,8 +55,8 @@ Rails.application.routes.draw do
 
 #wager routes
 get "/wagers", to: "wagers#index"
-get "/wagers/new", to: "wagers#new"
-post "/wagers", to: "wagers#create"
+get "/wagers/:id/edit", to: "wagers#edit"
+patch "/wagers/:id", to: "wagers#update"
 get "/wagers/:id", to: "wagers#show"
   
 end
