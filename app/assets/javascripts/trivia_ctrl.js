@@ -3,13 +3,14 @@
   "use strict";
 
   angular.module("app").controller("triviaCtrl", function($scope, $http, $timeout, $window) {
-    $scope.setup = function(id) {
+    $scope.setup = function(gameId, wagerId) {
       $http.get("/api/v1/trivia.json").then(function(response) {
         $scope.questions = response.data;
         $scope.currentQuestion = 0;
         $scope.maxQuestions = $scope.questions.length;
         $scope.userScore = 0;
-        $scope.gameId = id;
+        $scope.gameId = gameId;
+        $scope.wagerId = wagerId;
 
         $timeout(function() {
           $scope.userMessage();
@@ -36,7 +37,7 @@
         competitorScore: $scope.userScore
       };
       $http.patch("/api/v1/games/" + $scope.gameId, scoreParams).then(function(response) {
-        $window.location.href = "/wagers/1";
+        $window.location.href = "/wagers/" + $scope.wagerId;
       });
     };
 

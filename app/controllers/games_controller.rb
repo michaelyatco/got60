@@ -16,9 +16,9 @@ class GamesController < ApplicationController
       round_id: 1)
     if game.save 
       @chatroom = Chatroom.create(game_id: game.id)
-      wager = Wager.create
-      game.update(wager_id: wager.id)
-      redirect_to "/wagers/#{wager.id}/edit"
+      @wager = Wager.create
+      game.update(wager_id: @wager.id)
+      redirect_to "/wagers/#{@wager.id}/edit"
     else 
       render "new.html.erb"
     end
