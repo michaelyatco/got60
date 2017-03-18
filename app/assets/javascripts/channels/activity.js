@@ -11,6 +11,7 @@ App.activity = App.cable.subscriptions.create("ActivityChannel", {
     // Called when there's incoming data on the websocket for this channel
     var elementId = "messages-" + data.chatroom_id;
     var $scope = angular.element(document.getElementById(elementId)).scope();
+    console.log("angular!");
     $scope.messages.push(data);
     $scope.$apply();
   }
