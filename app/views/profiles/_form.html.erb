@@ -2,7 +2,7 @@
 <% if @profile.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
- 
+
     <ul>
     <% @profile.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -11,17 +11,14 @@
   </div>
 <% end %>
 
-<%= form_tag url, method: method_variable do %>
+<%= form_tag url, method: method_variable, enctype: "multipart/form-data" do %>
+
+<%= label_tag(:photo) %>
+<%= file_field_tag(:photo) %>
 
 <div>
-  <%= label_tag :username %> 
+  <%= label_tag :username %>
   <%= text_field_tag :username, @competitor.username %>
-</div>
-
-
-<div>
-  Image (Copy & paste the url):
-  <input class="form-control" type="text" name="image" value="<%= @profile.images.last %>">
 </div>
 
 <div>
@@ -58,12 +55,13 @@
 
 <div>
   Distance Limits:
-  <input class="form-control" type="text"  name="distance_limit" value="<%= @profile.distance_limits %>">
+  <input class="form-control" type="text"  name="distance_limits" value="<%= @profile.distance_limits %>">
 </div>
 
 <div>
   Default Games:
-  <input class="form-control" type="text"  name="default_games" value="<%= @profile.default_games %>">
+  <!-- <input class="form-control" type=""  name="default_games" value="<%= @profile.default_games %>"> -->
+  <%= select_tag 'default_games', options_for_select(['Trivias', 'blah blah', 'blah']) %>
 </div>
 
 <div>

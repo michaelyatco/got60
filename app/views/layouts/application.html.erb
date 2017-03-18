@@ -101,7 +101,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#about">
+                        <a href="/trivias">
                             <span class="main-link">Games</span>
                             <span class="additional-info-link bracket">
                                 who we are
@@ -117,7 +117,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <%= link_to 'My Profile', "/profiles/#{current_competitor.id}" %>
+                                <a href="/profiles/<%# current_competitor.id %>">My Profile</a>
                             </li>
                         </ul>
                     </li>
@@ -128,7 +128,7 @@
 
 
       <h1>Got 60!!!</h1>
-    <div class="container top-margin">     
+    <div class="container top-margin">
     <% flash.each do |name, message| %>
       <div class="alert alert-<%= name %> alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -137,7 +137,7 @@
         <%= message %>
       </div>
 
-      <% end %> 
+      <% end %>
     <%= yield %>
     </div>
 
@@ -145,7 +145,7 @@
     <!-- Footer -->
     <footer class="footer text-center" id="follow-us">
         <div class="container">
-            <ul class="list-inline">
+            <!-- <ul class="list-inline">
                 <li>
                     <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
                 </li>
@@ -161,9 +161,9 @@
                 <li>
                     <a href="#" title="RSS"><i class="fa fa-rss"></i></a>
                 </li>
-            </ul>
-            <p> &copy; 2016 <a href="http://jakubkwarcinski.pl" title="Jakub Kwarciński - Frontend Developer">Jakub Kwarciński</a></p>
-            <p class="text-center"><a href="http://www.freepik.com/free-photos-vectors/people">People vector designed by Freepik</a></p>
+            </ul> -->
+            <p> &copy; 2016 Michael J. Yatco</p>
+            <!-- <p class="text-center"><a href="http://www.freepik.com/free-photos-vectors/people">People vector designed by Freepik</a></p> -->
         </div>
     </footer>
 
@@ -266,8 +266,7 @@
     <!-- Google maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEspZc-GBwxrJtw4vS3GjhAzIv7gHVbXw&callback=initMap"></script>
 
-    
-    <h1>Contact me at mjyatco@gmail.com</h1>
+
+
   </body>
 </html>
-

@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
   # def index
   #   @profiles = Profile.all
-  #   render "index.html.erb" 
+  #   render "index.html.erb"
   # end
 
   def new
@@ -18,12 +18,20 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(gender: params[:gender], orientation: params[:orientation], bio: params[:bio], preferred_opponent:params[:preferred_opponent], preferred_age_range: params[:preferred_age_range], distance_limits: params[:distance_limits], default_games: params[:default_games], birthdate: params[:birthdate], competitor: current_competitor)
-
+    @profile = Profile.new(
+    gender: params[:gender],
+    orientation: params[:orientation],
+    bio: params[:bio],
+    preferred_opponent:params[:preferred_opponent],
+    preferred_age_range: params[:preferred_age_range],
+    distance_limits: params[:distance_limits],
+    default_games: params[:default_games],
+    birthdate: params[:birthdate],
+    competitor: current_competitor)
     if @profile.save
       @profile.images.create(url: params[:image])
       flash[:success] = "Profile has been created!"
-      redirect_to "/profiles/#{@profile.id}"  
+      redirect_to "/profiles/#{@profile.id}"
     else
       @competitor = current_competitor
       render "new.html.erb"
@@ -33,6 +41,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find_by(id: params[:id])
+    binding.pry
     render "show.html.erb"
   end
 
@@ -44,10 +53,17 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find_by(id: params[:id])
-    @profile.assign_attributes(gender: params[:gender], orientation: params[:orientation], bio: params[:bio], preferred_opponent: params[:preferred_opponent], preferred_age_range: params[:preferred_age_range], distance_limits: params[:distance_limits], default_games: params[:default_games])
-
+    @profile.assign_attributes(
+      gender: params[:gender],
+      orientation: params[:orientation],
+      bio: params[:bio],
+      preferred_opponent:
+      params[:preferred_opponent],
+      preferred_age_range: params[:preferred_age_range],
+      distance_limits: params[:distance_limits],
+      default_games: params[:default_games])
     if @profile.save
-      @profile.images.create(url: params[:images])
+      @profile.images.create(photo: params[:photo])
       flash[:success] = "Profile has been updated!"
       redirect_to "/profiles/#{@profile.id}"
     else

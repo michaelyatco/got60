@@ -5,8 +5,9 @@
   <%# @profiles.images.each do |image| %>
     <p> <img src = <%#= image.url %>></p>
   <%# end %> -->
+<%= image_tag(@profile.images[3].photo) %>
 <p>Birthdate: <%= @profile.birthdate %></p>
-<p>Gender: <%= @profile.gender%></p>
+<p>Gender: <%= @profile.gender %></p>
 <p>Bio: <%= @profile.bio %></p>
 <p>Preferred Opponent: <%= @profile.preferred_opponent %></p>
 <p>Preferred Age Range: <%= @profile.preferred_age_range %></p>
