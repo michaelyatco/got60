@@ -1,6 +1,6 @@
 <% if @winner %>
-  <h1>The winner of the <%= @wager.bet %> is <%= @winner.username %>!</h1>
-  <h1>Hey <%= @loser.username %>! You lost! Cough up that <%= @wager.bet %>!</h1>
+  <h5 class="digit-header">The winner of the <%= @wager.bet %> is <%= @winner.username %>!</h5>
+  <h4 class="system-header">Hey <%= @loser.username %>! You lost! Cough up that <%= @wager.bet %>!</h4>
 <% else %>
   <h1>Waiting for your challenger...</h1>
 <% end %>
