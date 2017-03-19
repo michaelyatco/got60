@@ -19,5 +19,7 @@ class WagersController < ApplicationController
   def show
     @wager = Wager.find_by(id: params[:id])
     @chatroom = Chatroom.find_by(game_id: @wager.game.id)
+    @winner = Competitor.find_by(id: @wager.winner_id)
+    @loser = Competitor.find_by(id: @wager.loser_id)
   end
 end

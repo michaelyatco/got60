@@ -5,7 +5,7 @@
   <%# @profiles.images.each do |image| %>
     <p> <img src = <%#= image.url %>></p>
   <%# end %> -->
-<%= image_tag(@profile.images[3].photo) %>
+<%= image_tag(@profile.images.first.photo) %>
 <p>Birthdate: <%= @profile.birthdate %></p>
 <p>Gender: <%= @profile.gender %></p>
 <p>Bio: <%= @profile.bio %></p>
@@ -17,4 +17,5 @@
 <% if current_competitor %>
 <%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit", class: "btn btn-success" %>
 <%= link_to "Delete Profile", "/profiles/#{@profile.id}", method: :delete, class: "btn btn-danger" %>
+<%= link_to "Let's Play!", "/games/new", class: "btn btn-info" %>
 <% end %>

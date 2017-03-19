@@ -12,12 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require angular
+//= require timer
 //= require HumanizeDuration
 //= require moment
 //= require i18nService.js
 //= require progressBarService
-//= require timer
 //= require app
 //= require_tree .

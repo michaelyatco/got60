@@ -41,7 +41,6 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find_by(id: params[:id])
-    binding.pry
     render "show.html.erb"
   end
 

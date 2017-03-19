@@ -96,29 +96,29 @@
                         <a href="#home">
                             <span class="main-link">Home</span>
                             <span class="additional-info-link bracket">
-                                start here
+                                It All Begins Here
                             </span>
                         </a>
                     </li>
                     <li>
-                        <a href="/trivias">
+                        <a href="#games">
                             <span class="main-link">Games</span>
                             <span class="additional-info-link bracket">
-                                who we are
+                                Trivia Categories
                             </span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#profiles" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="main-link">Profile <b class="caret"></b></span>
                             <span class="additional-info-link bracket">
-                                extended info
+                                Your Profile
                             </span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <% if current_competitor %>
-                                <a href="/profiles/<%= current_competitor.id %>">My Profile</a>
+                                <a onclick="goToProfile(<%= current_competitor.id %>)">My Profile</a>
                                 <% end %>
                             </li>
                         </ul>
@@ -177,54 +177,44 @@
     </div>
 
     <!-- Order modal -->
-    <div class="modal fade" id="order-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h3 class="modal-title">Sign Up</h3>
                 </div>
-                <form method="post" action="#">
+                  <%= form_tag "/competitors", method: :post do%>
                     <div class="modal-body">
                         <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis leo ut sapien tristique adipiscing. Nunc vitae nisi id ipsum congue ullamcorper.</p>
-                            <footer>Bill Archway <cite title="Source Title">100 games you must have</cite></footer>
+                            <p>Sign up here!</p>
+                            <footer>Michael J. Yatco<cite title="Source Title">100 games you must have</cite></footer>
                         </blockquote>
                         <div class="form-group has-feedback">
-                            <label for="order-first-name">First Name:</label>
-                            <input type="text" class="form-control" id="order-first-name" placeholder="Enter first name">
-                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                        </div>
-                        <div class="form-group has-feedback">
-                            <label for="order-last-name">Last Name:</label>
-                            <input type="text" class="form-control" id="order-last-name" placeholder="Enter last name">
+                            <label for="order-first-name">UserName:</label>
+                            <input type="text" name = "username" class="form-control" id="order-first-name" placeholder="Enter first name">
                             <span class="glyphicon glyphicon-user form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
                             <label for="order-email">Email:</label>
-                            <input type="email" class="form-control" id="order-email" placeholder="Enter email">
+                            <input type="email" name = "email" class="form-control" id="order-email" placeholder="Enter email">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
-                            <label for="order-phone">Phone:</label>
-                            <input type="text" class="form-control" id="order-phone" placeholder="Enter phone">
-                            <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                            <label for="order-phone">Password:</label>
+                            <input type="password" name = "password" class="form-control" id="order-password" placeholder="Password">
+                            <span class="glyphicon glyphicon-password form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
-                            <label for="order-company">Company:</label>
-                            <input type="text" class="form-control" id="order-company" placeholder="Your company">
-                            <span class="glyphicon glyphicon-home form-control-feedback"></span>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Yes, I want to get the newsletter
-                            </label>
+                            <label for="order-company">Confirm Password:</label>
+                            <input type="password" name = "password" class="form-control" id="order-password" placeholder="Confirm password">
+                            <span class="glyphicon glyphicon-password form-control-feedback"></span>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Order now</button><button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Sign Up!</button><button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                     </div>
-                </form>
+                <% end %>
             </div>
         </div>
     </div>

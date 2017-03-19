@@ -6,7 +6,6 @@
 
 <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @wager.game.id %>)">
  <div ng-repeat="message in messages | orderBy: 'created_at'">
-   <!-- {{ message.name }}: {{ message.body }} -->
    {{ message.name }}: {{ message.body }}
  </div>
 

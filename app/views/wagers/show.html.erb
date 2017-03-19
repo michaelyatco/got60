@@ -1,3 +1,11 @@
+<% if @winner %>
+  <h1>The winner of the <%= @wager.bet %> is <%= @winner.username %>!</h1>
+  <h1>Hey <%= @loser.username %>! You lost! Cough up that <%= @wager.bet %>!</h1>
+<% else %>
+  <h1>Waiting for your challenger...</h1>
+<% end %>
+
+
   <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @wager.game.id %>)">
    <div ng-repeat="message in messages | orderBy: 'created_at'">
      {{ message.name }}: {{ message.body }}

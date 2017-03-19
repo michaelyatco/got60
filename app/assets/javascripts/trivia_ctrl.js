@@ -13,7 +13,7 @@
         $scope.wagerId = wagerId;
 
         $timeout(function() {
-          $scope.userMessage();
+          $scope.endOfGame();
         }, 60000);
       });
     };
@@ -25,13 +25,13 @@
       }
       $scope.currentQuestion += 1;
       if (($scope.currentQuestion + 1) === $scope.maxQuestions) {
-        $scope.userMessage();
+        $scope.endOfGame();
       }
     };
 
-    $scope.userMessage = function() {
+    $scope.endOfGame = function() {
       $scope.currentQuestion = null;
-      $scope.message = "Game over. Your score is " + $scope.userScore;
+      // $scope.message = "Game over. Your score is " + $scope.userScore;
       // insert some logic that determines if this is competitor score or challenger score...
       var scoreParams = {
         competitorScore: $scope.userScore
