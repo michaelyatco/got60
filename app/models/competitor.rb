@@ -7,6 +7,7 @@ class Competitor < ApplicationRecord
   has_many :friends, through: :friendships
   has_many :wagers, through: :games
   has_many :messages
+  has_many :sessions
 
   validates :username, :email, :password, presence: true
   validates :username, :email, uniqueness: true
