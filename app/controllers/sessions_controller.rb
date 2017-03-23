@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
     competitor = Competitor.find_by(email: params[:email])
     if competitor && competitor.authenticate(params[:password])
       session[:competitor_id] = competitor.id
+      params[:latitude]
+      params[:longitude]
       flash[:success] = "Successfully logged in!"
       if competitor.profile
         redirect_to "/profiles/#{competitor.profile.id}"

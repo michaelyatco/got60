@@ -42,6 +42,6 @@
     };
 
     window.$scope = $scope;
-  });
+});
 
 })();

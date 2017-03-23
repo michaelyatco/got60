@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       patch "/games/:id", to: "games#update"
       get "/messages", to: "messages#index"
       post "/messages", to: "messages#create"
+      get '/sessions', to: 'sessions#index'
     end
   end
 

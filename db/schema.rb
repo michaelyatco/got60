@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322231554) do
+ActiveRecord::Schema.define(version: 20170323012930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,8 +83,9 @@ ActiveRecord::Schema.define(version: 20170322231554) do
   create_table "sessions", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "competitor_id"
   end
 
   create_table "trivia_answers", force: :cascade do |t|
