@@ -13,6 +13,7 @@
 <p>Preferred Age Range: <%= @profile.preferred_age_range %></p>
 <p>Distance Limits: <%= @profile.distance_limits %></p>
 <p>Default Games: <%= @profile.default_games %></p>
+<p>Rating: <%= @profile.rating %></p>
 
 <% if current_competitor %>
 <%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit", class: "btn btn-success" %>
