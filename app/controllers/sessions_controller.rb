@@ -1,17 +1,18 @@
 class SessionsController < ApplicationController
+  after_action :current_competitor, only: :create
   def new
     render "new.html.erb"
   end
 
   def create
-    competitor = Competitor.find_by(email: params[:email])
-    if competitor && competitor.authenticate(params[:password])
-      session[:competitor_id] = competitor.id
-      params[:latitude]
-      params[:longitude]
+    @competitor = Competitor.find_by(email: params[:email])
+    if @competitor && @competitor.authenticate(params[:password])
+      session[:competitor_id] = @competitor.id
       flash[:success] = "Successfully logged in!"
-      if competitor.profile
-        redirect_to "/profiles/#{competitor.profile.id}"
+      Session.create(latitude: params[:latitude], longitude: params[:longitude], competitor_id: @competitor.id)
+      if @competitor.profile
+        redirect_to "/profiles/#{@competitor.profile.id}"
+        
       else
         redirect_to "/profiles/new"
       end

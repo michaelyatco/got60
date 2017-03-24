@@ -3,15 +3,31 @@
   "use strict";
 
   angular.module("app").controller("homeCtrl", function($scope, $http) {
-    $scope.login = function(loginEmail, loginPassword, newLatitude, newLongitude) {
-      var sessionParams = {email: loginEmail, password: loginPassword, latitude: newLatitude, longitude: newLongitude};
-      $http.post("/login", sessionParams).then(function(response) {
-        console.log("Success!");
-      }, function(error) {
-        console.log(error);
-        $scope.errors = error.data.errors;
+    $scope.login = function(loginEmail, loginPassword) {
+      console.log(navigator);
+      console.log(navigator.geoLocation);
+      navigator.geolocation.getCurrentPosition(function(position) {
+
+        var sessionParams = {
+          email: loginEmail, 
+          password: loginPassword, 
+          latitude: position.coords.latitude, 
+          longitude: position.coords.longitude
+        };
+        $http.post("/api/v1/sessions", sessionParams).then(function(response) {
+          console.log("Success!");
+          console.log(response);
+          console.log(response.data.id);
+          var landingUrl = "/profiles/" + response.data.id;
+          console.log(landingUrl);
+          window.location.href = landingUrl;
+        }, function(error) {
+          console.log(error);
+          $scope.errors = error.data.errors;
+        });
       });
     };
+
   $scope.mapInit = function() {
     $http.get("/api/v1/sessions.json").then(function(response) {
       $scope.sessions = response.data;
@@ -53,6 +69,6 @@
         });
     });
   };
+  // $scope.$window = $scope;
   });
-
 })();

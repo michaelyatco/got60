@@ -1,0 +1,1 @@
+json.id @competitor.id

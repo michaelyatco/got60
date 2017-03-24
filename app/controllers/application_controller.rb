@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+  # protect_from_forgery with: :null_session
 
   def current_competitor
     @current_competitor ||= Competitor.find_by(id: session[:competitor_id]) if session[:competitor_id]
