@@ -1,4 +1,5 @@
 /* global angular */
+/* global gon */
 (function() {
   "use strict";
 
@@ -31,7 +32,14 @@
   $scope.mapInit = function() {
     $http.get("/api/v1/sessions.json").then(function(response) {
       $scope.sessions = response.data;
-      var lmhq = {lat: 40.7091881, lng: -74.0122789};
+      console.log(gon.latitude);
+      console.log(gon.longitude);
+      if (gon.latitude) {
+        var lmhq = {lat: gon.latitude, lng: gon.longitude};
+      } else {
+        var lmhq = {lat: 40.7091881, lng: -74.0122789};
+      }
+      console.log(lmhq);
         var map = new google.maps.Map(document.getElementById('map'), {
           center: lmhq,
           zoom: 12

@@ -35,6 +35,7 @@ gem 'pry'
 gem 'countdown'
 gem 'carrierwave', '~> 1.0'
 gem 'geocoder'
+gem 'gon'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
