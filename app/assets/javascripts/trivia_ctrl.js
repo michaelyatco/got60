@@ -4,7 +4,7 @@
 
   angular.module("app").controller("triviaCtrl", function($scope, $http, $timeout, $window) {
     $scope.setup = function(gameId, wagerId) {
-      $http.get("/api/v1/trivia.json").then(function(response) {
+      $http({method: "GET", url: "/api/v1/trivia.json", params: {game_id: gameId}}).then(function(response) {
         $scope.questions = response.data;
         $scope.currentQuestion = 0;
         $scope.maxQuestions = $scope.questions.length;

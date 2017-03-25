@@ -198,9 +198,19 @@ TriviaQuestion.create([
   # {question: "What is Hermoine's patronus?", category: "Harry Potter"},
   # {question: "What was the name of Hermoine's movement for house elves?", category: "Harry Potter"},
   # {question: "What is the name of the wizarding school in North America?", category: "Harry Potter"},
-  # {question: "What is the emblematic animal of House Hufflepuff?", category: "Harry Potter"}
-# ]
-# )
+  # {question: "What is the emblematic animal of House Hufflepuff?", category: "Harry Potter"},
+  # {question: "What victory is celebrated on Cinco de Mayo?", category: "History"},
+  # {question: "What was the last state admitted into the Union?", category: "History"},
+  # {question: "Which state does NOT touch a foreign country?", category: "History"},
+  # {question: "When was the Philippines acquired by the US?", category: "History"},
+  {question: "Which president grew up with asthma?", category: "History"},
+  {question: "What was the last state admitted into the Union?", category: "History"},
+  {question: "Which state does NOT touch a foreign country?", category: "History"},
+  {question: "When was the Philippines acquired by the US?", category: "History"},
+  {question: "What victory is celebrated on Cinco de Mayo?", category: "History"},
+  {question: "What was the last state admitted into the Union?", category: "History"},
+]
+)
 
 TriviaAnswer.create([
 # {trivia_question_id: 1, answer: "Ireland vs. Bulgaria", correct: true},
@@ -242,6 +252,26 @@ TriviaAnswer.create([
 # {trivia_question_id: 10, answer: "Badger", correct: true},
 # {trivia_question_id: 10, answer: "Ferret", correct: false},
 # {trivia_question_id: 10, answer: "Porcupine", correct: false},
-# {trivia_question_id: 10, answer: "Mongoose", correct: false},
-# ]
-# )
+ # {trivia_question_id: 10, answer: "Mongoose", correct: false},
+ # {trivia_question_id: 11, answer: "Mexicans over the French", correct: true},
+ # {trivia_question_id: 11, answer: "Mexicans over the Spanish", correct: false},
+ # {trivia_question_id: 11, answer: "Americans over the Mexicans", correct: false},
+ # {trivia_question_id: 11, answer: "Americans over the Spanish", correct: false},
+ # {trivia_question_id: 12, answer: "Hawaii", correct: true},
+ # {trivia_question_id: 12, answer: "Alaska", correct: false},
+ # {trivia_question_id: 12, answer: "Arizona", correct: false},
+ # {trivia_question_id: 12, answer: "New Mexico", correct: false},
+ # {trivia_question_id: 13, answer: "Louisiana", correct: true},
+ # {trivia_question_id: 13, answer: "Texas", correct: false},
+ # {trivia_question_id: 13, answer: "Montana", correct: false},
+ # {trivia_question_id: 13, answer: "North Dakota", correct: false},
+ # {trivia_question_id: 14, answer: "Spanish-American War", correct: true},
+ # {trivia_question_id: 14, answer: "World War I", correct: false},
+ # {trivia_question_id: 14, answer: "Korean War", correct: false},
+ # {trivia_question_id: 14, answer: "Never", correct: false},
+   {trivia_question_id: 15, answer: "Theodore Roosevelt", correct: true},
+   {trivia_question_id: 15, answer: "George Washinton", correct: false},
+   {trivia_question_id: 15, answer: "George W. Bush", correct: false},
+   {trivia_question_id: 15, answer: "Abraham Lincoln", correct: false},
+]
+)

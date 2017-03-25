@@ -44,7 +44,18 @@
           center: lmhq,
           zoom: 12
         });
-        var infoWindow = new google.maps.InfoWindow({map: map});
+        var address = "";
+        $http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + gon.latitude + "," + gon.longitude + "&key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY").then(function(response) {
+          console.log(response);
+          address = response.data.results[0].formatted_address;
+          console.log(address);
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map, content: address});
+        // var infowindow = new google.maps.InfoWindow({
+        //   map: map,
+        //   content: "Hello World"
+        // });
+
 
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -54,7 +65,7 @@
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent(address);
             map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -73,7 +84,8 @@
 
         var marker = new google.maps.Marker({
           position: lmhq,
-          map: map
+          map: map,
+          title: "Place"
         });
     });
   };

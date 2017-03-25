@@ -68,7 +68,7 @@
                         </span>
                         <h3 class="feature-header bracket">
                             <% if current_competitor %>
-                            <%= link_to "Harry Potter", "/games/new", method: :get %>
+                            <%= link_to "Harry Potter", "/games/new?game_id=1", method: :get %>
                             <% else %>
                             <%= link_to "Harry Potter", "/login/" %>
                             <% end %>
@@ -92,7 +92,7 @@
                         </span>
                             <h3 class="feature-header bracket">
                                 <% if current_competitor %>
-                                <%= link_to "History", "/games/new", method: :get %>
+                                <%= link_to "History", "/games/new?game_id=2", method: :get %>
                                 <% else %>
                                 <%= link_to "History", "/login/" %>
                             <% end %>

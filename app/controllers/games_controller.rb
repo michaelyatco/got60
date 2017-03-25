@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   end
 
   def new
+    @id = params[:game_id]
     render "new.html.erb"
   end
 

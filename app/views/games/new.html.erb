@@ -2,16 +2,16 @@
 <h1>New game for <%= current_competitor.username %></h1>
 <%= form_tag "/games/", method: :post do %>
   Game selected: 
-    <select name="game_id">
-      <option value="1" selected="<%= selected if params[:game] == 1 %>">Harry Potter Trivia</option>
-      <option value="2" selected="<%= selected if params[:game] == 2 %>">History</option>
-      <option value="3" selected="<%= selected if params[:game] == 3 %>">Pop Culture</option>
+    <select name="game_id" class="black-text">
+      <option value="1" <%= "selected" if @id == "1" %>>Harry Potter Trivia</option>
+      <option value="2" <%= "selected" if @id == "2" %>>History</option>
+      <option value="3" <%= "selected" if @id == "3" %> >Pop Culture</option>
     </select>
   Challenger selected: 
-    <select name="challenger_id">
+    <select name="challenger_id" class="black-text">
         <% Competitor.all.each do |competitor| %>
           <% unless current_competitor == competitor %>
-            <option value="<%= competitor.id %>"><%= competitor.username %></option>
+            <option value="<%= competitor.id %>" class="black-text"><%= competitor.username %></option>
           <% end %>
         <% end %>
     </select>
