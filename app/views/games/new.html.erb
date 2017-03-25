@@ -3,14 +3,18 @@
 <%= form_tag "/games/", method: :post do %>
   Game selected: 
     <select name="game_id">
-      <option value="1">Trivia</option>
+      <option value="1" selected="<%= selected if params[:game] == 1 %>">Harry Potter Trivia</option>
+      <option value="2" selected="<%= selected if params[:game] == 2 %>">History</option>
+      <option value="3" selected="<%= selected if params[:game] == 3 %>">Pop Culture</option>
     </select>
   Challenger selected: 
     <select name="challenger_id">
         <% Competitor.all.each do |competitor| %>
-        <option value="<%= competitor.id %>"><%= competitor.username %></option>
+          <% unless current_competitor == competitor %>
+            <option value="<%= competitor.id %>"><%= competitor.username %></option>
+          <% end %>
         <% end %>
     </select>
-    <input type="submit" value="Create Game!">
+    <input type="submit" value="Create Trivia Challenge!">
     
 <% end %>

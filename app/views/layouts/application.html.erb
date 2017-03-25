@@ -120,6 +120,8 @@
                                 <% if current_competitor %>
                                 <a onclick="goToProfile(<%= current_competitor.id %>)">My Profile</a>
                                 <a onclick="logout()">Log Out</a>
+                                <% else %>
+                                <a onclick="login()">Log In</a>
                                 <% end %>
                             </li>
                         </ul>
