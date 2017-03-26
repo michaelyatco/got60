@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get "/profiles", to: "profiles#index"
   get "/profiles/new", to: "profiles#new"
   post "/profiles", to: "profiles#create"
-  get "/profiles/:id", to: "profiles#show"
+  get "/profiles/:id", to: "profiles#show", as: "profile"
   get "/profiles/:id/edit", to: "profiles#edit"
   patch "/profiles/:id", to: "profiles#update"
   delete "/profiles/:id", to: "profiles#destroy"
@@ -56,9 +56,12 @@ Rails.application.routes.draw do
   get "/trivias/:id", to: "trivias#show"
 
 #wager routes
-get "/wagers", to: "wagers#index"
-get "/wagers/:id/edit", to: "wagers#edit"
-patch "/wagers/:id", to: "wagers#update"
-get "/wagers/:id", to: "wagers#show"
+  get "/wagers", to: "wagers#index"
+  get "/wagers/:id/edit", to: "wagers#edit"
+  patch "/wagers/:id", to: "wagers#update"
+  get "/wagers/:id", to: "wagers#show"
+
+#friendship routes
+  resources :friendships  
   
 end

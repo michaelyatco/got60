@@ -60,6 +60,7 @@ class ProfilesController < ApplicationController
       params[:preferred_opponent],
       preferred_age_range: params[:preferred_age_range],
       distance_limits: params[:distance_limits],
+      birthdate: params[:birthdate],
       default_games: params[:default_games])
     if @profile.save
       @profile.images.create(photo: params[:photo])

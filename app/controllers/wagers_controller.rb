@@ -12,7 +12,14 @@ class WagersController < ApplicationController
   def update
     @wager = Wager.find_by(id: params[:id])
     @wager.update(bet: params[:bet])
-    Message.create(competitor_id: current_competitor.id, chatroom_id: @wager.game.id, body: "The game has started! Go to <a href='localhost:3000/trivias/#{@wager.game.id}'>here</a>")
+    @message = Message.create(competitor_id: current_competitor.id, chatroom_id: @wager.game.id, body: "The game has started! Go to <a href='localhost:3000/trivias/#{@wager.game.id}'>here</a>")
+    ActionCable.server.broadcast "activity_channel", {
+      id: @message.id,
+      name: @message.competitor.username,
+      body: @message.body,
+      chatroom_id: @message.chatroom_id,
+      created_at: @message.created_at
+    }
     redirect_to "/trivias/#{@wager.game.id}"
   end
 

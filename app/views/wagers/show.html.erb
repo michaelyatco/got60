@@ -21,7 +21,9 @@
 
   </div>
 
-  <% if @winner %>
-    <%= link to  %>
+  <% if current_competitor == @winner && @loser %>
+    <%= link_to  "Add Friend", friendships_path(friend_id: @loser.id), method: :post%>
+  <% elsif current_competitor == @loser %>
+    <%= link_to  "Add Friend", friendships_path(friend_id: @winner.id), method: :post%>
   <% end %>
     

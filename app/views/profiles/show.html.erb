@@ -1,6 +1,6 @@
 
-
-<p>Name: <%= @profile.competitor.username %></p>
+<h5 class="digit-header">PROFILE</h5>
+<p>Userame: <%= @profile.competitor.username %></p>
 <!-- <p>Images:</p>
   <%# @profiles.images.each do |image| %>
     <p> <img src = <%#= image.url %>></p>
@@ -15,9 +15,23 @@
 <p>Default Games: <%= @profile.default_games %></p>
 <p>Rating: <%= @profile.rating %></p>
 
-<% if current_competitor %>
+<% if current_competitor.id == @profile.id%>
 <%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit", class: "btn btn-success" %>
 <%= link_to "Delete Profile", "/profiles/#{@profile.id}", method: :delete, class: "btn btn-danger" %>
 <%= link_to "Let's Play!", "/games/new", class: "btn btn-info" %>
 <%= link_to "Log Out!", "/logout", class: "btn btn-warning" %>
+<% end %>
+
+<% if current_competitor %>
+<h4 class="system-header">Your Friends:</h4>
+  <% @profile.competitor.friends.each do |friend| %>
+    <%= link_to friend.username, "/profiles/#{friend.id}", class: "btn btn-primary" %>
+    <%= link_to "Delete Friend", friendship_path(friend), method: :delete, class: "btn btn-danger" %>
+  <% end %>
+
+<h4 class="system-header">Competitors who have befriended you:</h4>
+  <% @profile.competitor.inverse_friends.each do |friend| %>
+    <%= link_to friend.username, "/profiles/#{friend.id}", class: "btn btn-primary" %>
+    <%# link_to "Delete Friend", friendship_path(friend), method: :delete, class: "btn btn-danger" %>
+  <% end %>
 <% end %>

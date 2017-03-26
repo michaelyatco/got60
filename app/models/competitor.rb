@@ -8,6 +8,8 @@ class Competitor < ApplicationRecord
   has_many :wagers, through: :games
   has_many :messages
   has_many :sessions
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :competitor
 
   validates :username, :email, :password, presence: true
   validates :username, :email, uniqueness: true
