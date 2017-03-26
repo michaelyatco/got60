@@ -60,6 +60,8 @@ Rails.application.routes.draw do
   get "/wagers/:id/edit", to: "wagers#edit"
   patch "/wagers/:id", to: "wagers#update"
   get "/wagers/:id", to: "wagers#show"
+  post "/wagers/:id/upvote", to: "wagers#upvote", as: "upvote"
+  post "/wagers/:id/downvote", to: "wagers#downvote", as: "downvote"
 
 #friendship routes
   resources :friendships  

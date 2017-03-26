@@ -4,4 +4,6 @@ class Profile < ApplicationRecord
 
   validates :birthdate, :gender, presence: true
   validates :bio, length: { maximum: 500 }
+
+  acts_as_votable
 end

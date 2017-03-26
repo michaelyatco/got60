@@ -27,3 +27,9 @@
     <%= link_to  "Add Friend", friendships_path(friend_id: @winner.id), method: :post%>
   <% end %>
     
+    <h2>Did <%= @loser.username %> honor the bet?</h1>
+    <% if current_competitor == @winner && @loser %>
+    <%= link_to "Yes", upvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post %>
+    <%= link_to "No", downvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post %>
+
+    <% end %>

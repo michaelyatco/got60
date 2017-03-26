@@ -29,4 +29,18 @@ class WagersController < ApplicationController
     @winner = Competitor.find_by(id: @wager.winner_id)
     @loser = Competitor.find_by(id: @wager.loser_id)
   end
+
+  def upvote
+    @voter = Competitor.find_by(id: params[:voter_id])
+    @loser = Competitor.find_by(id: params[:loser_id])
+    @loser.profile.liked_by(@voter)
+    redirect_to "/wagers/#{params[:id]}"
+  end
+
+  def downvote
+    @voter = Competitor.find_by(id: params[:voter_id])
+    @loser = Competitor.find_by(id: params[:loser_id])
+    @loser.profile.downvote_from(@voter)
+    redirect_to "/wagers/#{params[:id]}"
+  end
 end
