@@ -34,6 +34,7 @@ class WagersController < ApplicationController
     @voter = Competitor.find_by(id: params[:voter_id])
     @loser = Competitor.find_by(id: params[:loser_id])
     @loser.profile.liked_by(@voter)
+    flash[:success] = "Upvoted for honoring the bet!"
     redirect_to "/wagers/#{params[:id]}"
   end
 
@@ -41,6 +42,7 @@ class WagersController < ApplicationController
     @voter = Competitor.find_by(id: params[:voter_id])
     @loser = Competitor.find_by(id: params[:loser_id])
     @loser.profile.downvote_from(@voter)
+    flash[:warning] = "Downvoted for stiffing the winner!"
     redirect_to "/wagers/#{params[:id]}"
   end
 end

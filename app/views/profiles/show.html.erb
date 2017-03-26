@@ -13,7 +13,8 @@
 <p>Preferred Age Range: <%= @profile.preferred_age_range %></p>
 <p>Distance Limits: <%= @profile.distance_limits %></p>
 <p>Default Games: <%= @profile.default_games %></p>
-<p>Rating: <%= @profile.rating %></p>
+<p>Times Upvoted for Honoring Bet: <%= @profile.get_upvotes.size %></p>
+<p>Times Downvoted for Not Honoring Bet: <%= @profile.get_downvotes.size %></p>
 
 <% if current_competitor.id == @profile.id%>
 <%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit", class: "btn btn-success" %>

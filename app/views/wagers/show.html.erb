@@ -21,15 +21,17 @@
 
   </div>
 
+<div>
+    <h2>Did <%= @loser.username %> honor the bet?</h2>
+    <% if current_competitor == @winner && @loser %>
+    <%= link_to "Yes", upvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post, class: "btn btn-success"  %>
+    <%= link_to "No", downvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post, class: "btn btn-danger" %>
+    <% end %>
+ </div>   
+
   <% if current_competitor == @winner && @loser %>
-    <%= link_to  "Add Friend", friendships_path(friend_id: @loser.id), method: :post%>
+    <%= link_to  "Add Friend & Return to Profile", friendships_path(friend_id: @loser.id), method: :post, class: "btn btn-info" %>
   <% elsif current_competitor == @loser %>
-    <%= link_to  "Add Friend", friendships_path(friend_id: @winner.id), method: :post%>
+    <%= link_to  "Add Friend & Return to Profile", friendships_path(friend_id: @winner.id), method: :post, class: "btn btn-info"%>
   <% end %>
     
-    <h2>Did <%= @loser.username %> honor the bet?</h1>
-    <% if current_competitor == @winner && @loser %>
-    <%= link_to "Yes", upvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post %>
-    <%= link_to "No", downvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post %>
-
-    <% end %>
