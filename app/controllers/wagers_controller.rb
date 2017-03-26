@@ -12,7 +12,7 @@ class WagersController < ApplicationController
   def update
     @wager = Wager.find_by(id: params[:id])
     @wager.update(bet: params[:bet])
-    @message = Message.create(competitor_id: current_competitor.id, chatroom_id: @wager.game.id, body: "The game has started! Go to <a href='localhost:3000/trivias/#{@wager.game.id}'>here</a>")
+    @message = Message.create(competitor_id: current_competitor.id, chatroom_id: @wager.game.id, body: "The game has started!")
     ActionCable.server.broadcast "activity_channel", {
       id: @message.id,
       name: @message.competitor.username,
