@@ -1,10 +1,16 @@
+<script>
+  setInterval(function(){
+   $('#my_div').load('/path/to/server/source');
+}, 2000)
+</script>
+<div>
 <% if @winner %>
   <h5>The winner of the <%= @wager.bet %> is <%= @winner.username %>!</h5>
   <h4>Hey <%= @loser.username %>! You lost! Cough up that <%= @wager.bet %>!</h4>
 <% else %>
   <h1>Waiting for your challenger...</h1>
 <% end %>
-
+</div>
 
   <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @wager.game.id %>)">
    <div ng-repeat="message in messages | orderBy: 'created_at'">
@@ -22,8 +28,8 @@
   </div>
 
 <div>
-    <h2>Did <%= @loser.username %> honor the bet?</h2>
     <% if current_competitor == @winner && @loser %>
+    <h2>Did <%= @loser.username %> honor the bet?</h2>
     <%= link_to "Yes", upvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post, class: "btn btn-success"  %>
     <%= link_to "No", downvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post, class: "btn btn-danger" %>
     <% end %>

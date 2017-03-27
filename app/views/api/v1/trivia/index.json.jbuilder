@@ -1,4 +1,4 @@
-json.array! @trivia.each do |question|
+json.array! @trivia.shuffle.each do |question|
   json.id question.id
   json.question question.question
   json.trivia_answers question.trivia_answers.shuffle.each do |answer|
