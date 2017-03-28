@@ -11,7 +11,10 @@
         $scope.userScore = 0;
         $scope.gameId = gameId;
         $scope.wagerId = wagerId;
-
+        $scope.myNumber = 60;
+        $timeout(function() {
+          $scope.myNumber -= 1;
+        }, 1000);
         $timeout(function() {
           $scope.endOfGame();
         }, 60000);

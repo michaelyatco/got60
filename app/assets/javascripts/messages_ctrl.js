@@ -6,6 +6,7 @@
       $http({method: "GET", url: "/api/v1/messages.json", params: {chatroom_id: id}}).then(function(response) {
         $scope.messages = response.data;
         console.log($scope.messages);
+        $scope.completed = false;
       });
     };
 
@@ -19,5 +20,7 @@
         $scope.newMessageBody = "";
       });
     };
+    window.$scope = $scope;
   });
+
 })();

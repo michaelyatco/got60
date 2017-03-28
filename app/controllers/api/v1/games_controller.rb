@@ -9,6 +9,11 @@ class Api::V1::GamesController < ApplicationController
       else
         @wager.update(loser_id: @game.challenger_id, winner_id: @game.competitor_id)
       end
+      @chatroom = Chatroom.find_by(game_id: @game.id)
+      ActionCable.server.broadcast "message_channel", {
+        chatroom_id: @chatroom.id,
+        complete: true
+      }
     else
       @game.update(competitor_score: params[:competitorScore])
     end
