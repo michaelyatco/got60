@@ -13,15 +13,6 @@
 </div>
 
   <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @wager.game.id %>)">
-<!--   <div>
-   <div ng-if="completed">
-      <h5>The winner of the <%= @wager.bet %> is <%= @winner.username %>!</h5>
-      <h4>Hey <%= @loser.username %>! You lost! Cough up that <%= @wager.bet %>!</h4>
-    </div>
-    <div ng-if="!completed">
-      <h1>Waiting for your challenger...</h1>
-    </div>
-  </div> -->
    <div ng-repeat="message in messages | orderBy: 'created_at'">
      {{ message.name }}: {{ message.body }} <a href="/trivias/<%= @wager.game.id %>" ng-if="message.body === 'The game has started!'">Click here to play the game!</a>
    </div>

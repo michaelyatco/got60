@@ -1,20 +1,29 @@
-<h1>Add wager for <%= current_competitor.username %></h1>
-<%= form_tag "/wagers/#{@wager.id}", method: :patch do %>
-  Your Bet: <input type="text" name="bet">
-  <input type="submit" value="Submit Wager!">
-<% end %>
+<h1 span class="main-color">The Trivia Thunderdome: <%= current_competitor.username %> VS. <%= @wager.challenger %></span>!</h1>
 
 <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @wager.game.id %>)">
  <div ng-repeat="message in messages | orderBy: 'created_at'">
    {{ message.name }}: {{ message.body }}
  </div>
 
+<br>
  <div>
-    <label for="body">New message: </label>
+    <h1 span class="main-color" label for="body">1. Meet Your Challenger! </label></h1>
+    <h6>Chat here to agree on a <strong>wager</strong>, <strong>smack talk</strong>, and discuss where to <strong>meet-up</strong> afterwards!</h6>
     <form ng-submit="createNewMessage(newMessageBody, <%= current_competitor.id %>, <%= @chatroom.id %>)">
-    <input type="text" name="body" ng-model="newMessageBody">
+    <input type="text" placeholder="Enter message" name="body" ng-model="newMessageBody">
     </form>
-    <input type="submit" ng-click="createNewMessage(newMessageBody, <%= current_competitor.id %>, <%= @chatroom.id %>)">
+    <br>
+    <input type="submit" value="send" ng-click="createNewMessage(newMessageBody, <%= current_competitor.id %>, <%= @chatroom.id %>)" span class="btn btn-primary btn-lg">
  </div>
-
 </div>
+
+<br>
+<%= form_tag "/wagers/#{@wager.id}", method: :patch do %>
+  <h1 span class="main-color">2. Place your bet:</span></h1>
+  <h6>Once you've agreed on a wager, enter it here! Leave blank to wager nothing (...coward).</h6>
+  <input type="text" placeholder="Enter here" name="bet" class="button-space">
+  <br>
+  <input type="submit" value="3. Begin Challenge!" span class="btn btn-primary btn-lg">
+  <br>
+  <h6> You have 60 seconds - may the odds be ever in your favor!</h6>
+<% end %>

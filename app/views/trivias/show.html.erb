@@ -1,14 +1,14 @@
-<i class="fa fa-gamepad trivia-icon" aria-hidden="true"></i><span class="main-color">Trivia</span> <span class="normal">Face</span><span class="main-color">Off</span>
+<i class="fa fa-gamepad trivia-icon" aria-hidden="true"></i><h4 span class="main-color">Trivia</span> <span class="normal">Face</span><span class="main-color">Off!</span></h4>
 
 <div ng-app="app">
   <div ng-controller="triviaCtrl" ng-init="setup(<%= @game.id %>, <%= @game.wager.id %>)">
     {{ message }}
-    <timer interval="1000" countdown="60">{{countdown}}</timer>
+    <h2 timer interval="1000" countdown="60">{{countdown}}</timer></h2>
    
+    <h2>Your Score: {{ userScore }}</h2>
 
-<div>
     <div ng-repeat="question in questions" ng-if="currentQuestion == $index">
-      <span class="main-color">{{ question.question }}</span>
+      <h2 span class="main-color">{{ question.question }}</span></h2>
       <h1></h1>
       <div ng-repeat="answer in question.trivia_answers" class="button-space">
         <div class="btn-border btn-primary">
@@ -19,11 +19,11 @@
       </div>
     </div>
   </div>
-</div>
 
     <timer countdown="60" interval="1000">
-        Remaining time : {{countdown}} second{{secondsS}} ({{progressBar}}%). Activity? {{displayProgressActive}}
-    <div id="custom-progress" class="progress progress-striped bar active" style="width: {{progressBar}}%; z-index: 100000;"></div> </div></timer>
+        Remaining time : {{countdown}} second{{secondsS}} Percent Completed:({{progressBar}}%)
+    <div id="custom-progress" class="progress progress-striped bar active" style="width: {{progressBar}}%; z-index: 100000;"></div>
+    </timer>
 
   <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @game.id %>)">
    <div ng-repeat="message in messages | orderBy: 'created_at'">

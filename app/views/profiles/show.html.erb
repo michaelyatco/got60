@@ -5,14 +5,16 @@
   <%# @profiles.images.each do |image| %>
     <p> <img src = <%#= image.url %>></p>
   <%# end %> -->
+<% if @profile.images.any? %>
 <%= image_tag(@profile.images.first.photo) %>
+<% end %>
 <p>Birthdate: <%= @profile.birthdate %></p>
 <p>Gender: <%= @profile.gender %></p>
 <p>Bio: <%= @profile.bio %></p>
 <p>Preferred Opponent: <%= @profile.preferred_opponent %></p>
 <p>Preferred Age Range: <%= @profile.preferred_age_range %></p>
 <p>Distance Limits: <%= @profile.distance_limits %></p>
-<p>Default Games: <%= @profile.default_games %></p>
+<p>Default Trivia: <%= @profile.default_games %></p>
 <p>Times Upvoted for Honoring Bet: <%= @profile.get_upvotes.size %></p>
 <p>Times Downvoted for Not Honoring Bet: <%= @profile.get_downvotes.size %></p>
 
@@ -26,8 +28,8 @@
 <% if current_competitor %>
 <h4 class="system-header">Your Friends:</h4>
   <% @profile.competitor.friends.each do |friend| %>
-    <%= link_to friend.username, "/profiles/#{friend.id}", class: "btn btn-primary" %>
-    <%= link_to "Delete Friend", friendship_path(friend), method: :delete, class: "btn btn-danger" %>
+    <p><%= link_to friend.username, "/profiles/#{friend.id}", class: "btn btn-primary" %></p>
+    <p><%= link_to "Delete Friend", friendship_path(friend), method: :delete, class: "btn btn-danger" %></p>
   <% end %>
 
 <h4 class="system-header">Competitors who have befriended you:</h4>

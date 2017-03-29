@@ -1,4 +1,4 @@
-<h1>Login</h1>
+<!-- <h1>Login</h1>
 <%= form_tag '/login', method: :post do %>
   <div>
     <%= label_tag :email %>
@@ -10,4 +10,40 @@
   </div>
   <input type="hidden" ng-mo>
   <%= submit_tag "Submit" %>
-<% end %>
+<% end %> -->
+<div ng-app="app">
+<div ng-controller="homeCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Log In!</h3>
+            </div>
+                <div class="modal-body">
+                    <blockquote>
+                        <p>Log In Here!</p>
+                        <footer>"You guys give up? Or are you thirsty for more?"<cite title="Source Title">-Kevin McCallister</cite></footer>
+                    </blockquote>
+                    <!-- <div class="form-group has-feedback">
+                        <label for="order-first-name">UserName:</label>
+                        <input type="text" name="username" class="form-control" id="order-first-name" placeholder="Enter first name">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div> -->
+                    <div class="form-group has-feedback">
+                        <label for="order-email">Email:</label>
+                        <input type="email" ng-model="email" class="form-control" id="order-email" placeholder="Enter email">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="order-password">Password:</label>
+                        <input type="password" ng-model="password" class="form-control" id="order-password" placeholder="Password">
+                        <span class="glyphicon glyphicon-password form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" ng-click="login(email, password)"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Log In!</button><button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+        </div>
+    </div>
+</div>
+</div>

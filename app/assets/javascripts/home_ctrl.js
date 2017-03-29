@@ -32,12 +32,14 @@
   $scope.mapInit = function() {
     $http.get("/api/v1/sessions.json").then(function(response) {
       $scope.sessions = response.data;
-      console.log(gon.latitude);
-      console.log(gon.longitude);
       if (gon.latitude) {
+        var lat = gon.latitude;
+        var long = gon.longitude;
         var lmhq = {lat: gon.latitude, lng: gon.longitude};
       } else {
-        var lmhq = {lat: 40.7091881, lng: -74.0122789};
+        var lat = 40.7091881;
+        var long = -74.012284;
+        var lmhq = {lat: 40.7091881, lng: -74.012284};
       }
       console.log(lmhq);
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -45,7 +47,9 @@
           zoom: 12
         });
         var address = "";
-        $http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + gon.latitude + "," + gon.longitude + "&key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY").then(function(response) {
+        console.log(gon.latitude);
+        console.log(gon.longitude);
+        $http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + long + "&key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY").then(function(response) {
           console.log(response);
           address = response.data.results[0].formatted_address;
           console.log(address);
