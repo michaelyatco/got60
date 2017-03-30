@@ -1,7 +1,7 @@
 <i class="fa fa-gamepad trivia-icon" aria-hidden="true"></i><h4 span class="main-color">Trivia</span> <span class="normal">Face</span><span class="main-color">Off!</span></h4>
 
 <div ng-app="app">
-  <div ng-controller="triviaCtrl" ng-init="setup(<%= @game.id %>, <%= @game.wager.id %>)">
+  <div ng-controller="triviaCtrl" ng-init="setup(<%= @game.id %>, <%= @game.wager.id %>, <%= current_competitor.id %>)">
     {{ message }}
     <h2 timer interval="1000" countdown="60">{{countdown}}</timer></h2>
    

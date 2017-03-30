@@ -31,6 +31,8 @@ class WagersController < ApplicationController
   end
 
   def upvote
+    @wager = Wager.find_by(id: params[:id])
+    @wager.update(fulfilled: true)
     @voter = Competitor.find_by(id: params[:voter_id])
     @loser = Competitor.find_by(id: params[:loser_id])
     @loser.profile.liked_by(@voter)
@@ -39,6 +41,8 @@ class WagersController < ApplicationController
   end
 
   def downvote
+    @wager = Wager.find_by(id: params[:id])
+    @wager.update(fulfilled: true)
     @voter = Competitor.find_by(id: params[:voter_id])
     @loser = Competitor.find_by(id: params[:loser_id])
     @loser.profile.downvote_from(@voter)

@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
     birthdate: params[:birthdate],
     competitor: current_competitor)
     if @profile.save
-      @profile.images.create(url: params[:image])
+      @profile.images.create(photo: params[:photo])
       flash[:success] = "Profile has been created!"
       redirect_to "/profiles/#{@profile.id}"
     else

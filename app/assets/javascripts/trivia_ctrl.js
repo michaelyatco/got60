@@ -3,7 +3,7 @@
   "use strict";
 
   angular.module("app").controller("triviaCtrl", function($scope, $http, $timeout, $window) {
-    $scope.setup = function(gameId, wagerId) {
+    $scope.setup = function(gameId, wagerId, userId) {
       $http({method: "GET", url: "/api/v1/trivia.json", params: {game_id: gameId}}).then(function(response) {
         $scope.questions = response.data;
         $scope.currentQuestion = 0;
@@ -12,6 +12,7 @@
         $scope.gameId = gameId;
         $scope.wagerId = wagerId;
         $scope.myNumber = 60;
+        $scope.userId = userId;
         $timeout(function() {
           $scope.myNumber -= 1;
         }, 1000);
@@ -37,7 +38,8 @@
       // $scope.message = "Game over. Your score is " + $scope.userScore;
       // insert some logic that determines if this is competitor score or challenger score...
       var scoreParams = {
-        competitorScore: $scope.userScore
+        competitorScore: $scope.userScore,
+        user_id: $scope.userId
       };
       $http.patch("/api/v1/games/" + $scope.gameId, scoreParams).then(function(response) {
         $window.location.href = "/wagers/" + $scope.wagerId;

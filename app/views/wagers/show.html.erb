@@ -6,8 +6,10 @@
 <h1 span class="main-color">Your 60 Seconds Are Up!</span></h1>
 <div>
 <% if @winner %>
-  <h1 span class="main-color">The winner of the <%= @wager.bet %> is <%= @winner.username %>!</h1>
-  <h4>Good showing <%= @loser.username %> but you lost! Cough up that <%= @wager.bet %>!</h4>
+  <h1 span class="main-color">The winner of the <%= @wager.bet %> is <%= @winner.username.capitalize %>!</h1>
+  <h4>Good showing <%= @loser.username.capitalize %> but you lost! Cough up that <%= @wager.bet %>!</h4>
+  <h5><%= @wager.competitor_name.capitalize %>'s Score: <%= @wager.game.competitor_score %></h5>
+  <h5><%= @wager.challenger.capitalize %>'s Score: <%= @wager.game.challenger_score %></h5>
 <% else %>
   <h1>Waiting for your challenger...</h1>
 <% end %>
@@ -15,7 +17,7 @@
 
   <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @wager.game.id %>)">
    <div ng-repeat="message in messages | orderBy: 'created_at'">
-     {{ message.name }}: {{ message.body }} <a href="/trivias/<%= @wager.game.id %>" ng-if="message.body === 'The game has started!'">Click here to play the game!</a>
+     <div ng-if="!(message.body === 'The game has started!')">{{ message.name }}: {{ message.body }}</div>
    </div>
 
    <div>
@@ -32,7 +34,7 @@
   </div>
 
 <div>
-    <% if current_competitor == @winner && @loser %>
+    <% if current_competitor == @winner && @loser && !@wager.fulfilled %>
     <h2 span class="main-color">2. Did <%= @loser.username %> honor the bet?</span></h2>
     <h6>There's a special circle in hell for those who refuse to honor their wagers...</h6>
     <%= link_to "Yes", upvote_path(id: @wager.id,voter_id: current_competitor.id, loser_id: @loser.id), method: :post, class: "btn btn-success"  %>

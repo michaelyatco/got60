@@ -1,8 +1,8 @@
-<h1 span class="main-color">The Trivia Thunderdome: <%= current_competitor.username %> VS. <%= @wager.challenger %></span>!</h1>
+<h1 span class="main-color">The Trivia Thunderdome: <%= @wager.competitor_name %> VS. <%= @wager.challenger %></span>!</h1>
 
 <div id="messages-<%= @chatroom.id %>" ng-controller="messagesCtrl" ng-init="setup(<%= @wager.game.id %>)">
  <div ng-repeat="message in messages | orderBy: 'created_at'">
-   {{ message.name }}: {{ message.body }}
+   {{ message.name }}: {{ message.body }} <a href="/trivias/<%= @wager.game.id %>" ng-if="message.body === 'The game has started!'">Click here to play the game!</a>
  </div>
 
 <br>
